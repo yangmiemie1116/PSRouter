@@ -2,5 +2,5 @@
 platform :ios, '8.0'
 
 target 'PSRouterDemo' do
-pod 'PSRouter', :path=>'./'
+pod 'PSRouter'
 end
