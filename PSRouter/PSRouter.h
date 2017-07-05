@@ -10,6 +10,11 @@
 #import <UIKit/UIKit.h>
 @interface PSRouter : NSObject
 /**
+ 针对自定义的tabbarcontroller， 每次点击tab，要告诉route选中的tab index, index默认为0
+ */
+@property (nonatomic, assign) NSInteger index;
+
+/**
  创建Router
  
  @return PSRouter

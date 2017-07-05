@@ -24,6 +24,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.index = 0;
         self.mapDict = @{}.mutableCopy;
     }
     return self;
@@ -95,7 +96,10 @@
         UIViewController* presentedViewController = rootViewController.presentedViewController;
         return [self p_topViewControllerWithRootViewController:presentedViewController];
     } else {
-        return rootViewController;
+        if ([rootViewController.parentViewController isKindOfClass:[UINavigationController class]]) {
+            return rootViewController;
+        }
+        return [self p_topViewControllerWithRootViewController:rootViewController.childViewControllers[self.index]];
     }
 }
 
