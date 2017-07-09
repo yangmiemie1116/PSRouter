@@ -99,7 +99,10 @@
         if ([rootViewController.parentViewController isKindOfClass:[UINavigationController class]]) {
             return rootViewController;
         }
-        return [self p_topViewControllerWithRootViewController:rootViewController.childViewControllers[self.index]];
+        if (rootViewController.childViewControllers.count > self.index) {
+            return [self p_topViewControllerWithRootViewController:rootViewController.childViewControllers[self.index]];
+        }
+        return nil;
     }
 }
 
