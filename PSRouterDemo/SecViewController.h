@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SecViewController : UIViewController
-
+@property (nonatomic, assign) NSInteger tap;
 @end

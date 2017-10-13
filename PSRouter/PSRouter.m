@@ -31,17 +31,16 @@
 }
 
 - (void)registerClass:(nonnull Class)class protocol:(nonnull Protocol*)protocol {
-    [self.mapDict setObject:class forKey:NSStringFromProtocol(protocol)];
+    UIViewController *controller = [[class alloc] init];
+    [self.mapDict setObject:controller forKey:NSStringFromProtocol(protocol)];
 }
 
 - (void)openScheme:(nonnull Protocol*)protocol property:(nullable void(^)(id _Nullable x))property {
-    
     [self openScheme:protocol property:property isModel:NO];
 }
 
 - (void)openScheme:(nonnull Protocol*)protocol property:(nullable void(^)(id _Nullable x))property isModel:(BOOL)isModel {
-    Class class = self.mapDict[NSStringFromProtocol(protocol)];
-    UIViewController *controller = [[class alloc] init];
+    UIViewController *controller = self.mapDict[NSStringFromProtocol(protocol)];
     controller.hidesBottomBarWhenPushed = YES;
     if (property) {
         property(controller);
@@ -59,11 +58,11 @@
 }
 
 - (void)popToScheme:(nonnull Protocol*)protocol {
-    Class class = self.mapDict[NSStringFromProtocol(protocol)];
+    UIViewController *originController = self.mapDict[NSStringFromProtocol(protocol)];
     UIViewController *targetController = nil;
     NSArray<__kindof UIViewController *> *viewControllers = [self topViewController].navigationController.viewControllers;
     for (UIViewController *controller in viewControllers) {
-        if ([controller isMemberOfClass:class]) {
+        if ([controller isKindOfClass:originController.class]) {
             targetController = controller;
             break;
         }
@@ -107,8 +106,7 @@
 }
 
 - (UIViewController*)controllerConformProtocol:(nonnull Protocol*)protocol setProperty:(void(^)(id))property{
-    Class class = self.mapDict[NSStringFromProtocol(protocol)];
-    UIViewController *controller = [[class alloc] init];
+    UIViewController *controller = self.mapDict[NSStringFromProtocol(protocol)];
     if ([controller conformsToProtocol:protocol]) {
         if (property) {
             property(controller);

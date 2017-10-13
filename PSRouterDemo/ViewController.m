@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <PSRouter/PSRouter.h>
 #import "Protocol.h"
+#import "SecViewController.h"
 @interface ViewController ()
 
 @end
@@ -30,6 +31,8 @@
 }
 
 - (void)buttonDown {
+    SecViewController *ctr = (SecViewController*)[[PSRouter shareInstance] controllerConformProtocol:@protocol(SecProtocol) setProperty:nil];
+    ctr.tap = 1;
     [[PSRouter shareInstance] openScheme:@protocol(SecProtocol) property:^(id<SecProtocol>target) {
         target.buttonTitle = @"Sectond";
     }];
