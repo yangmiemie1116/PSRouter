@@ -110,7 +110,9 @@
     Class class = self.mapDict[NSStringFromProtocol(protocol)];
     UIViewController *controller = [[class alloc] init];
     if ([controller conformsToProtocol:protocol]) {
-        property(controller);
+        if (property) {
+            property(controller);
+        }
         return controller;
     }
     return [[UIViewController alloc] init];
