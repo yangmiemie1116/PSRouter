@@ -69,13 +69,4 @@
  */
 - (nonnull UIViewController *)topViewController;
 
-/**
- 获取指定的Controller
- 
- @param protocol protocol
- @param property property
- @return UIViewController conform to protocol
- */
-- (nonnull UIViewController*)controllerConformProtocol:(nonnull Protocol*)protocol setProperty:(nullable void(^)(id _Nullable))property;
-
 @end

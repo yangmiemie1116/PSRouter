@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "PSRouter"
-  s.version      = "0.0.5"
+  s.version      = "0.0.6"
   s.summary      = "页面跳转路由"
   s.description  = <<-DESC
                    页面之间跳转路由
