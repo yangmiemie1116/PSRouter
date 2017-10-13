@@ -31,8 +31,6 @@
 }
 
 - (void)buttonDown {
-    SecViewController *ctr = (SecViewController*)[[PSRouter shareInstance] controllerConformProtocol:@protocol(SecProtocol) setProperty:nil];
-    ctr.tap = 1;
     [[PSRouter shareInstance] openScheme:@protocol(SecProtocol) property:^(id<SecProtocol>target) {
         target.buttonTitle = @"Sectond";
     }];

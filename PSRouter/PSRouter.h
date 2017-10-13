@@ -34,7 +34,7 @@
  @param protocol protocol
  @param property controller property
  */
-- (void)openScheme:(nonnull Protocol*)protocol property:(nullable void(^)(id _Nullable x))property;
+- (UIViewController*_Nonnull)openScheme:(nonnull Protocol*)protocol property:(nullable void(^)(id _Nullable x))property;
 
 /**
  Open Controller
@@ -43,7 +43,7 @@
  @param property controller property
  @param isModel Default is NO  if YES presentViewController else pushViewController
  */
-- (void)openScheme:(nonnull Protocol*)protocol property:(nullable void(^)(id _Nullable x))property isModel:(BOOL)isModel;
+- (UIViewController*_Nonnull)openScheme:(nonnull Protocol*)protocol property:(nullable void(^)(id _Nullable x))property isModel:(BOOL)isModel;
 
 /**
  dismiss current viewController

@@ -34,11 +34,11 @@
     [self.mapDict setObject:class forKey:NSStringFromProtocol(protocol)];
 }
 
-- (void)openScheme:(nonnull Protocol*)protocol property:(nullable void(^)(id _Nullable x))property {
-    [self openScheme:protocol property:property isModel:NO];
+- (UIViewController*)openScheme:(nonnull Protocol*)protocol property:(nullable void(^)(id _Nullable x))property {
+    return [self openScheme:protocol property:property isModel:NO];
 }
 
-- (void)openScheme:(nonnull Protocol*)protocol property:(nullable void(^)(id _Nullable x))property isModel:(BOOL)isModel {
+- (UIViewController*)openScheme:(nonnull Protocol*)protocol property:(nullable void(^)(id _Nullable x))property isModel:(BOOL)isModel {
     Class class = self.mapDict[NSStringFromProtocol(protocol)];
     UIViewController *controller = [class new];
     controller.hidesBottomBarWhenPushed = YES;
@@ -51,6 +51,7 @@
     } else {
         [[self topViewController].navigationController pushViewController:controller animated:YES];
     }
+    return controller;
 }
 
 - (void)pop {
