@@ -30,8 +30,8 @@
     return self;
 }
 
-- (void)registerClass:(nonnull Class)class protocol:(nonnull Protocol*)protocol {
-    [self.mapDict setObject:class forKey:NSStringFromProtocol(protocol)];
+- (void)registerClass:(nonnull Class)className protocol:(nonnull Protocol*)protocol {
+    [self.mapDict setObject:className forKey:NSStringFromProtocol(protocol)];
 }
 
 - (UIViewController*)openScheme:(nonnull Protocol*)protocol property:(nullable void(^)(id _Nullable x))property {

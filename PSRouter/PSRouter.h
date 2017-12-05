@@ -23,10 +23,10 @@
 
 /**
  注册Class
- @param class UIViewController
+ @param className UIViewController
  @param protocol protocol
  */
-- (void)registerClass:(nonnull Class)class protocol:(nonnull Protocol*)protocol;
+- (void)registerClass:(nonnull Class)className protocol:(nonnull Protocol*)protocol;
 
 /**
  Open Controller
